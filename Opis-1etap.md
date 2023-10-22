@@ -1,4 +1,41 @@
-# ***Tutaj wstaw Stronę tytułową***
+# Aplikacja Administracji Polski
+#### Przedmiot: Bazy Danych 2 <br> Prowadzący: dr inż. Roman Ptak
+<pre>
+
+</pre>
+| Nr grupy     |        1        |
+|--------------|:---------------:|
+| Skład grupy  | Jan Zieniewicz,   Adrian Kotula,   Jędrzej Koba|
+| Termin       | Pt 11:15        |
+| Temat projektu| „Podział administracyjny Polski”|
+<pre>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</pre>
 # Aplikacja "Podział administracyjny IV RP"
 ## Cel: Stworzenie aplikacji ułatwiającej odczytywanie danych administracyjnych
 ## Opis:  
