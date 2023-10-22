@@ -10,31 +10,6 @@
 | Temat projektu| „Podział administracyjny Polski”|
 <pre>
 
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 </pre>
 # Aplikacja "Podział administracyjny IV RP"
 ## Cel: Stworzenie aplikacji ułatwiającej odczytywanie danych administracyjnych
@@ -82,8 +57,11 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - składanie wniosku o edycję istniejących danych lub dodanie nowych
 ### Administrator danych: 
 - wyświetlanie danych o województwach
+- wyświetlanie danych o powiatach/ gminach na podstawie danych dotyczących województw
 - wyświetlanie danych o powiatach
+- wyświetlanie danych o województwach/ gminach na podstawie danych dot. powiatów
 - wyświetlanie danych o gminach
+- wyświetlanie danych o województwach/ powiatach na podstawie danych dot. gmin
 - wyświetlanie danych spełniających warunki zadane przez użytkownika
 - dodawanie nowych danych
 - usuwanie danych
@@ -92,8 +70,11 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - rozpatrywanie wniosków o dodanie/zmianę/usunięcie danych złożonych przez użytkownika
 ### Administrator IT:  
 - wyświetlanie danych o województwach
+- wyświetlanie danych o powiatach/ gminach na podstawie danych dotyczących województw
 - wyświetlanie danych o powiatach
+- wyświetlanie danych o województwach/ gminach na podstawie danych dot. powiatów
 - wyświetlanie danych o gminach
+- wyświetlanie danych o województwach/ powiatach na podstawie danych dot. gmin
 - wyświetlanie danych spełniających warunki zadane przez użytkownika
 - konfiguracja zasad tworzenia automatycnzej kopii zapasowej
 - tworzenie kont dla nowych użytkownikow
