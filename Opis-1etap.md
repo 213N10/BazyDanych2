@@ -6,12 +6,12 @@
 | Nr grupy     |        1        |
 |--------------|:---------------:|
 | Skład grupy  | Jan Zieniewicz,   Adrian Kotula,   Jędrzej Koba|
-| Termin       | Pt 11:15        |
+| Termin       | Pt 11:15  rok akademicki 2023/34      |
 | Temat projektu| „Podział administracyjny Polski”|
 <pre>
 
 </pre>
-# Aplikacja "Podział administracyjny IV RP"
+# Aplikacja "Podział administracyjny RP"
 ## Cel: Stworzenie aplikacji ułatwiającej odczytywanie danych administracyjnych
 ## Opis:  
 Stworzony przez nas system przedstawiający podział administracyjny Rzeczypospolitej Polskiej będzie się składał z aplikacji dostępowej oraz bazy danych.
@@ -56,36 +56,52 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - wyświetlanie danych spełniających warunki zadane przez użytkownika
 - składanie wniosku o edycję istniejących danych lub dodanie nowych
 ### Administrator danych: 
-- wyświetlanie danych o województwach
-- wyświetlanie danych o powiatach/ gminach na podstawie danych dotyczących województw
-- wyświetlanie danych o powiatach
-- wyświetlanie danych o województwach/ gminach na podstawie danych dot. powiatów
-- wyświetlanie danych o gminach
-- wyświetlanie danych o województwach/ powiatach na podstawie danych dot. gmin
-- wyświetlanie danych spełniających warunki zadane przez użytkownika
-- dodawanie nowych danych
-- usuwanie danych
-- edytowanie istniejących dancych
+- administrator danych posiada dostęp do takich samych funkcjonalności co odbiorca danych
+- dodawanie nowych województw
+- usuwanie województw
+- modyfikowanie danych podstawowych województwa
+- modyfikowanie danych statystycznych województwa
+- modyfikowanie danych administracyjnych województwa
+- modyfikowanie danych geolokalizacyjnych województwa
+- wyszukiwanie województw
+
+- dodawanie nowych powiatów
+- usuwanie powiatu
+- modyfikowanie danych podstawowych powiatu
+- modyfikowanie danych statystycznych powiatu
+- modyfikowanie danych administracyjnych powiatu
+- modyfikowanie danych geolokalizacyjnych powiatu
+- wyszukiwanie powiatów
+
+- dodawanie nowych gmin
+- usuwanie gmin
+- modyfikowanie danych podstawowych gminy
+- modyfikowanie danych statystycznych gminy
+- modyfikowanie danych administracyjnych gminy
+- modyfikowanie danych geolokalizacyjnych gminy
+- wyszukiwanie gmin
 - zapisywanie danych
 - rozpatrywanie wniosków o dodanie/zmianę/usunięcie danych złożonych przez użytkownika
 ### Administrator IT:  
-- wyświetlanie danych o województwach
-- wyświetlanie danych o powiatach/ gminach na podstawie danych dotyczących województw
-- wyświetlanie danych o powiatach
-- wyświetlanie danych o województwach/ gminach na podstawie danych dot. powiatów
-- wyświetlanie danych o gminach
-- wyświetlanie danych o województwach/ powiatach na podstawie danych dot. gmin
-- wyświetlanie danych spełniających warunki zadane przez użytkownika
+- administrator IT ma dostęp do takich samych funkcjonalności co administrator danych oraz odbiorca danych
 - konfiguracja zasad tworzenia automatycnzej kopii zapasowej
 - tworzenie kont dla nowych użytkownikow
 - zarządzanie bazą danych
 
+
 ### Cechy niefunkcjonalne:
-- Intuicyjny interfejs uzytkownika
-- System powinien dzialac na przegladarkach dostepnych na systemach: Windows, Linux, macOS.
-- Bezpieczestwo danych uzytkownikow
-- System bedzie dostepny całą dobę z wyjątkiem środy
-- Calodobowe wsparcie techniczne
+- Aplikacja dostępowa do bazy danych będzie w formie aplikacji webowej.
+- Aplikacja dostępowa będzie napisana w Python3 z wykorzystaniem framework`u Django.
+- Aplikacja będzie posiadać intuicyjny interfejs uzytkownika.
+- Aplikacja będzie działać na przęglądarkach dostępnych na systemach: Windows, Linux, macOS.
+- Baza danych będzie wykorzystywać technologię MySQL.
+- Stabilność zapewnią testy jednostkowe i funkcjonalne dla aplikacji django.
+- System gwarantuje integralność danych, poprzez weryfikację użytkowników.
+- System powinien obsłużyć 300 zapytań na sekundę 
+- System będzie ciągle dostępny z wyjątkiem czasu, w którym prowadzone będą prace konserwacyjne. 
+- Prace konserwacyjne bedą odbywać się w środy w godzinach 11-16.
+- Zapewniamy całodobowe wsparcie techniczne.
+- Będziemy monitorować użycie zasobów.
 
 
 
