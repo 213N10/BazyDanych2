@@ -102,6 +102,7 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - Prace konserwacyjne bedą odbywać się w środy w godzinach 11-16.
 - Zapewniamy całodobowe wsparcie techniczne.
 - Będziemy monitorować użycie zasobów.
+- największa tablica będzie miała około 2500 rekordów.
 
 
 
