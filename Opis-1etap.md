@@ -64,7 +64,6 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - modyfikowanie danych administracyjnych województwa
 - modyfikowanie danych geolokalizacyjnych województwa
 - wyszukiwanie województw
-
 - dodawanie nowych powiatów
 - usuwanie powiatu
 - modyfikowanie danych podstawowych powiatu
@@ -72,7 +71,6 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - modyfikowanie danych administracyjnych powiatu
 - modyfikowanie danych geolokalizacyjnych powiatu
 - wyszukiwanie powiatów
-
 - dodawanie nowych gmin
 - usuwanie gmin
 - modyfikowanie danych podstawowych gminy
@@ -102,7 +100,7 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - Prace konserwacyjne bedą odbywać się w środy w godzinach 11-16.
 - Zapewniamy całodobowe wsparcie techniczne.
 - Będziemy monitorować użycie zasobów.
-- największa tablica będzie miała około 2500 rekordów.
+- największa encja (gmin) będzie miała około 2500 rekordów.
 
 
 
