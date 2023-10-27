@@ -98,7 +98,8 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - Stabilność zapewnią testy jednostkowe i funkcjonalne dla aplikacji django.
 - System gwarantuje integralność danych, poprzez weryfikację użytkowników.
 - System powinien obsłużyć 300 zapytań na sekundę 
-- System będzie ciągle dostępny z wyjątkiem czasu, w którym prowadzone będą prace konserwacyjne. 
+- System będzie ciągle dostępny z wyjątkiem czasu, w którym prowadzone będą prace konserwacyjne.
+- System tworzy kopie zapasowe przed każdą aktualizacją bazy danych.
 - Prace konserwacyjne bedą odbywać się w środy w godzinach 11-16.
 - Zapewniamy całodobowe wsparcie techniczne.
 - Będziemy monitorować użycie zasobów.
