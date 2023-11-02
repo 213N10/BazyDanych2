@@ -5,11 +5,11 @@
 ~~1. Zajęcia organizacyjne. Podział na grupy i wybór tematów projektów.~~  
 ~~2. Opis słowny systemu.~~  
 ### _3. Faza projektowa_ ***[Work in progress]***
-	- Model konceptualny bazy – diagram związków encji
-    - Model logiczny bazy
-    - Model fizyczny bazy
-    - Modelowanie pozostałych elementów bazy danych
-    - Modelowanie aplikacji dostępowej
+- Model konceptualny bazy – diagram związków encji
+- Model logiczny bazy
+- Model fizyczny bazy
+- Modelowanie pozostałych elementów bazy danych
+- Modelowanie aplikacji dostępowej
 4. Implementacja bazy danych
 	- Skrypty SQL’owe zawierające definicje obiektów bazy (tabele, widoki, funkcje pamiętane, procedury, wyzwalacze) oraz dane testowe  
     - Plik lub pliki bazowe wypełnione danymi testowym  
