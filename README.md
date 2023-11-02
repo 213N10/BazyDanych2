@@ -3,8 +3,8 @@
 
 ### Plan zajęć/zagadnienia:
 ~~1. Zajęcia organizacyjne. Podział na grupy i wybór tematów projektów.~~  
-### _2. Opis słowny systemu._ ***[Work in progress]***  
-3. Faza projektowa
+~~2. Opis słowny systemu.~~  
+### _3. Faza projektowa_ ***[Work in progress]***
 	- Model konceptualny bazy – diagram związków encji
     - Model logiczny bazy
     - Model fizyczny bazy
