@@ -2,22 +2,41 @@ Indeksy jednokolumnowe:
 według nazw: województw, powiatów i gmin
 
 Indeksy złożone:
-Indeks łączący id, nazwę i stolicę (województwa, powiatu, gminy)
-Indeks łączący id, nazwę i powierzchnię (województwa, powiatu, gminy)
-Indeks łączący id, nazwę i ludność (województwa, powiatu, gminy)
-Indeks łączący id, nazwę i typ gminy lub powiatu (w zależności czy to powiat czy gmina)
-Indeks łączący id, nazwę i inne dane (województwa, powiatu, gminy)
-Indeks łączący id, nazwę i województwo w którym znajduje się powiat/ powiat w którym znajduje się gmina
-Indeks łączący id, nazwę, stolicę, współrzędne stolicy i powierzchnię (województwa, powiatu, gminy)
-Indeks łączący id, nazwę, stolicę, współrzędne stolicy (województwa, powiatu, gminy)
-Indeks łączący id, nazwę, stolicę i typ gminy lub powiatu (w zależności czy to powiat czy gmina)
+Indeks łączący id województwa, nazwę województwa i stolicę województwa lub 2 stolice województwa (województwa, powiatu, gminy)
+Indeks łączący id powiatu, nazwę powiatu i stolicę powiatu
+Indeks łączący id gminy, nazwę gminy i stolicę gminy
+Indeks łączący id województwa, nazwę województwa i powierzchnię województwa 
+Indeks łączący id powiatu, nazwę powiatu i powierzchnię powiatu 
+Indeks łączący id gminy, nazwę gminy i powierzchnię województwa 
+Indeks łączący id województwa, nazwę województwa i ludność województwa
+Indeks łączący id powiatu, nazwę powiatu i ludność powiatu
+Indeks łączący id gminy, nazwę gminy i ludność gminy
+Indeks łączący id powiatu, nazwę powiatu i typ powiatu
+Indeks łączący id gminy, nazwę gminy i typ gminy
+Indeks łączący id województwa, nazwę województwa i inne dane województwa
+Indeks łączący id powiatu, nazwę powiatu i inne dane powiatu
+Indeks łączący id gminy, nazwę gminy i inne dane gminy
+Indeks łączący id powiatu, nazwę powiatu i województwo w którym znajduje się powiat
+Indeks łączący id gminy, nazwę gminy, województwo w którym znajduje się gmina i powiat w którym znajduje się gmina
+Indeks łączący id województwa, nazwę województwa, stolicę województwa, współrzędne stolicy województwa i powierzchnię województwa
+Indeks łączący id powiatu, nazwę powiatu, stolicę powiatu, współrzędne stolicy powiatu i powierzchnię powiatu
+Indeks łączący id gminy, nazwę gminy, stolicę gminy, współrzędne stolicy gminy i powierzchnię gminy
+Indeks łączący id województwa, nazwę województwa, stolicę województwa i współrzędne stolicy województwa
+Indeks łączący id powiatu, nazwę powiatu, stolicę powiatu i współrzędne stolicy powiatu
+Indeks łączący id gminy, nazwę gminy, stolicę gminy, współrzędne stolicy gminy
+Indeks łączący id powiatu, nazwę powiatu, stolicę powiatu i typ powiatu
+Indeks łączący id gminy, nazwę gminy, stolicę gminy i typ gminy
 
 Widoki:
-Widok pokazujący nazwę, stolicę, współrzędne stolicy (lub stolic) i  powierzchnię  (województwa, powiatu, gminy)
-Widok pokazujący nazwę,  stolicę i typ gminy, to w jakim powiecie się znajduje i w jakim województwie się znajduje
-Widok pokazujący nazwę, stolicę i typ powiatu, to w jakim województwie się znajduje i jakie gminy się w nim znajdują
-Widok pokazujący nazwę i stolicę (lub stolice) województwa, to jakie są w nim powiaty i jakie są w nim gminy
-Widok pokazujący nazwę, stolicę, powierzchnię, ludność i inne dane (województwo, powiat, gmina)
+Widok pokazujący nazwę województwa, stolicę województwa, współrzędne stolicy województwa, możliwej drugiej stolicy województwa i powierzchnię województwa
+Widok pokazujący nazwę powiatu, stolicę powiatu, współrzędne stolicy powiatu i  powierzchnię powiatu
+Widok pokazujący nazwę gminy, stolicę gminy, współrzędne stolicy gminy i  powierzchnię gminy
+Widok pokazujący nazwę gminy, stolicę gminy, typ gminy, to w jakim powiecie gmina się znajduje i w jakim województwie gmina się znajduje
+Widok pokazujący nazwę powiatu, stolicę powiatu, typ powiatu, to w jakim województwie powiat się znajduje i jakie gminy znajdują się w tym powiecie
+Widok pokazujący nazwę województwa, stolicę województwa i możliwą drugą stolicę województwa, to jakie powiaty są w tym województwie i jakie gminy są w tym województwie
+Widok pokazujący nazwę województwa, stolicę województwa, powierzchnię województwa, ludność województwa i inne dane województwa
+Widok pokazujący nazwę powiatu, stolicę powiatu, powierzchnię powiatu, ludność powiatu i inne dane powiatu
+Widok pokazujący nazwę gminy, stolicę gminy, powierzchnię gminy, ludność gminy i inne dane gminy
 
 Poziomy uprawnień:
 użytkownik podstawowy, będzie mógł tylko odczytywać dane z bazy (dostęp do tablicy województw, powiatów i gmin typu read only)
@@ -31,5 +50,17 @@ Procedury pozwalające na wyszukiwanie danych województw, powiatów czy gmin we
 
 
 Triggery:
-Before delete (województwo, powiat) sprawdzający przed usunięciem czy nie ma powiązanych rekordów z tym rekordem
-Trigger sprawdzający poprawność wprowadzanych danych np.: czy liczba ludności nie jest liczbą ujemną
+Trigger before delete sprawdzający przed usunięciem województwa czy nie ma powiązanych rekordów z tym rekordem
+Trigger before delete sprawdzający przed usunięciem powiatu czy nie ma powiązanych rekordów z tym rekordem
+Trigger before insert sprawdzający poprawność wprowadzanych danych gminy: czy liczba ludności nie jest liczbą ujemną
+Trigger before insert sprawdzający poprawność wprowadzanych danych gminy: czy powierzchnia nie jest liczbą ujemną
+Trigger before insert sprawdzający poprawność wprowadzanych danych gminy: czy współrzędne mieszczą się w zakresach kraju
+Trigger before insert sprawdzający poprawność wprowadzanych danych powiatu: czy współrzędne mieszczą się w zakresach kraju
+Trigger before insert sprawdzający poprawność wprowadzanych danych województwa: czy współrzędne mieszczą się w zakresach kraju
+Trigger after insert obliczający aktualną liczbę ludności w powiecie po dodaniu, gminy do powiatu
+Trigger after delete obliczający aktualną liczbę ludności w powiecie po usunięciu gminy z powiatu
+Trigger after update obliczający aktualną liczbę ludności w powiecie po edycji danych gminy w powiecie
+Trigger after insert obliczający aktualną liczbę ludności w województwie po dodaniu powiatu do województwa
+Trigger after delete obliczający aktualną liczbę ludności w województwie po usunięciu powiatu z województwa
+Trigger after update obliczający aktualną liczbę ludności w województwie po edycji danych powiatu w województwie
+Trigger after insert obliczający aktualną powierzchnię województwa po dodaniu powiatu do województwa
