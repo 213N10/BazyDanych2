@@ -94,6 +94,7 @@ Trigger after update obliczający aktualną powierzchnię powiatu po edycji dany
 Cascade:
 Cascade delete używany przy usuwaniu województwa (usuwa także przypisane do niego powiaty i gminy)
 Cascade delete używany przy usuwaniu powiatu (usuwa także przypisane do niego gminy)
+FOREIGN KEY (Id_powiatu) REFERENCES Powiaty(Id_powiatu) ON DELETE CASCADE
 
 Przy dodawaniu nowego rekordu za pomocą operacji check czy liczba jest nieujemna (liczba ludności) lub dodatnia (powierzchnia):
 Przy dodaniu województwa:
