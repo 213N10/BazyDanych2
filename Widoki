@@ -1,0 +1,213 @@
+Widok pokazujący nazwę województwa, stolicę województwa, współrzędne stolicy 
+województwa, możliwej drugiej stolicy województwa i powierzchnię województwa
+CREATE VIEW WidokWojewodztw AS
+SELECT
+    Nazwa,
+    Miasto_wojewodzkie,
+    Wspolrzedne_miasta_wojewodzkiego_x,
+    Wspolrzedne_miasta_wojewodzkiego_y,
+    Drugie_miasto_wojewodzkie,
+    Wspolrzedne_drugiego_miasta_wojewodzkiego_x,
+    Wspolrzedne_drugiego_miasta_wojewodzkiego_y,
+    Powierzchnia
+FROM
+    Wojewodztwa;
+
+
+Widok pokazujący nazwę powiatu, stolicę powiatu, współrzędne stolicy powiatu i  powierzchnię powiatu
+CREATE VIEW WidokPowiatow 
+SELECT
+    Nazwa,
+    Stolica_powiatu,
+    Wspolrzedne_stolicy_x,
+    Wspolrzedne_stolicy_y,
+    Powierzchnia
+FROM
+    Powiaty;
+
+
+Widok pokazujący nazwę gminy, stolicę gminy, współrzędne stolicy gminy i  powierzchnię gminy
+
+CREATE VIEW WidokGmin AS
+SELECT
+    Nazwa,
+    Stolica_gminy,
+    Wspolrzedne_stolicy_x,
+    Wspolrzedne_stolicy_y,
+    Powierzchnia
+FROM
+    Gminy;
+
+
+
+
+
+
+
+
+Widok pokazujący nazwę gminy, stolicę gminy, typ gminy, to w jakim powiecie gmina się znajduje (nazwa powiatu) i w jakim województwie gmina się znajduje (nazwa województwa)
+
+CREATE VIEW WidokInformacjiGminNazwaPowiatuWojewodztwa AS
+SELECT
+    Gminy.Nazwa,
+    Gminy.Stolica_gminy,
+    Typ_gminy.Typ,
+    Powiaty.Nazwa,
+    Wojewodztwa.Nazwa
+FROM
+    Gminy
+JOIN
+    Powiaty  ON Gminy.Powiat_w_ktorym_sie_znajduje = Powiaty.Id_terytowe
+JOIN
+    Wojewodztwa ON Powiaty.Wojewodztwo_w_jakim_sie_znajduje = Wojewodztwa.Id_terytowe
+JOIN
+    Typ_gminy ON Gminy.Id_terytowe = Typ_gminy.Id;
+
+
+Widok pokazujący nazwę powiatu, stolicę powiatu, typ powiatu, to w jakim województwie (nazwa województwa) powiat się znajduje i jakie gminy (nazwy gmin) znajdują się w tym powiecie
+
+CREATE VIEW WidokInformacjiPowiatowNazwyWojewodztGmin AS
+SELECT
+    Powiaty.Nazwa,
+    Powiaty.Stolica_powiatu,
+    Powiaty.Wspolrzedne_stolicy_x,
+    Powiaty.Wspolrzedne_stolicy_y,
+    Powiaty.Powierzchnia,
+    Powiaty.Ludnosc,
+    Powiaty.Inne_dane,
+    Wojewodztwa.Nazwa,
+    Gminy.Nazwa,
+    Typy_powiatow.Typ
+FROM
+    Powiaty
+JOIN
+    Wojewodztwa ON Powiaty.Wojewodztwo_w_ktorym_sie_znajduje =       
+    Wojewodztwa.Id_terytowe
+LEFT JOIN
+    Gminy ON Powiaty.Id_terytowe = Gminy.Powiat_w_ktorym_sie_znajduje
+JOIN
+    Typy_powiatow ON Powiaty.Id_terytowe = Typ_powiatu.Id;
+
+
+
+
+
+
+Widok pokazujący nazwę województwa, stolicę województwa i możliwą drugą stolicę województwa, to jakie powiaty są w tym województwie (nazwy powiatów) i jakie gminy są w tym województwie (nazwy gmin)
+
+CREATE VIEW WidokInformacjiWojewodztwNazwyPowiatowGmin AS
+SELECT
+    Wojewodztwa.Nazwa,
+    Wojewodztwa.Miasto_wojewodzkie,
+    Wojewodztwa.Drugie_miasto_wojewodzkie,
+    Powiaty.Nazwa,
+    Gminy.Nazwa
+FROM
+    Wojewodztwa
+LEFT JOIN
+    Powiaty ON Wojewodztwa.Id_terytowe = Powiaty.Wojewodztwo_w_ktorym_sie_znajduje
+LEFT JOIN
+    Gminy ON Powiaty.Id_terytowe = Gminy.Powiat_w_ktorym_sie_znajduje;
+
+Widok pokazujący nazwę województwa, stolicę województwa, powierzchnię województwa, ludność województwa i inne dane województwa
+
+CREATE VIEW WidokInformacjiWojewodztwInne AS
+SELECT
+    Nazwa,
+    Miasto_wojewodzkie,
+    Powierzchnia,
+    Ludnosc,
+    Inne_dane
+FROM
+    Wojewodztwa;
+
+Widok pokazujący nazwę powiatu, stolicę powiatu, powierzchnię powiatu, ludność powiatu i inne dane powiatu
+
+CREATE VIEW WidokInformacjiPowiatowInne AS
+SELECT
+    Nazwa,
+    Stolica_powiatu,
+    Powierzchnia,
+    Ludnosc,
+    Inne_dane
+FROM
+    Powiaty;
+
+Widok pokazujący nazwę gminy, stolicę gminy, powierzchnię gminy, ludność gminy i inne dane gminy
+
+CREATE VIEW WidokInformacjiGminInne AS
+SELECT
+    Nazwa,
+    Stolica_gminy,
+    Powierzchnia,
+    Ludnosc,
+    Inne_dane
+FROM
+    Gminy;
+
+
+Widok pokazujący nazwę województwa, stolicę województwa, powiaty jakie się w nim znajdują (nazwa powiatu, typ powiatu) i gminy jakie znajdują się w tym województwie (nazwa gminy, typ gminy)
+
+CREATE VIEW WidokWojewodztwaWszystkieTypy AS
+SELECT 
+    Wojewodztwa.Nazwa,
+    Wojewodztwa.Miasto_wojewodzkie,
+    Typy_powiatow.Typ,
+    Typ_gminy.Typ,
+    Powiat.Nazwa,
+    Gmina.Nazwa
+FROM 
+    Wojewodztwa
+JOIN 
+    Powiaty ON Wojewodztwa.Id_terytowe = Powiaty.Wojewodztwo_w_jakim_sie_znajduje
+JOIN 
+    Gminy ON Powiaty.Id_terytowe = Gminy.Powiat_w_ktorym_sie_znajduje
+JOIN 
+    Typy_powiatow ON Powiaty.Typ_powiatu = Typy_powiatow.Id
+JOIN 
+    Typ_gminy ON Gminy.Typ_gminy = Typ_gminy.Id;
+
+
+
+
+
+
+
+
+
+
+
+Przykładowy insert
+DELIMITER //
+
+CREATE PROCEDURE DodajWojewodztwo(
+    IN Id_terytowe_param INT,
+    IN Nazwa_param VARCHAR(100),
+    IN Miasto_wojewodzkie_param VARCHAR(100),
+    IN Wspolrzedne_miasta_wojewodzkiego_x_param FLOAT,
+    IN Wspolrzedne_miasta_wojewodzkiego_y_param FLOAT,
+    IN Drugie_miasto_wojewodzkie_param VARCHAR(100),
+    IN Wspolrzedne_drugiego_miasta_wojewodzkiego_x_param FLOAT,
+    IN Wspolrzedne_drugiego_miasta_wojewodzkiego_y_param FLOAT,
+    IN Powierzchnia_param FLOAT,
+    IN Ludnosc_param INT,
+    IN Inne_dane_param VARCHAR(255)
+)
+BEGIN
+    INSERT INTO Wojewodztwa (Id_terytowe, Nazwa, Miasto_wojewodzkie, Wspolrzedne_miasta_wojewodzkiego_x, Wspolrzedne_miasta_wojewodzkiego_y, Drugie_miasto_wojewodzkie, Wspolrzedne_drugiego_miasta_wojewodzkiego_x, Wspolrzedne_drugiego_miasta_wojewodzkiego_y, Powierzchnia, Ludnosc, Inne_dane)
+    VALUES (
+        Id_terytowe_param,
+        Nazwa_param,
+        Miasto_wojewodzkie_param,
+        Wspolrzedne_miasta_wojewodzkiego_x_param,
+        Wspolrzedne_miasta_wojewodzkiego_y_param,
+        Drugie_miasto_wojewodzkie_param,
+        Wspolrzedne_drugiego_miasta_wojewodzkiego_x_param,
+        Wspolrzedne_drugiego_miasta_wojewodzkiego_y_param,
+        Powierzchnia_param,
+        Ludnosc_param,
+        Inne_dane_param
+    );
+END //
+
+DELIMITER ;
