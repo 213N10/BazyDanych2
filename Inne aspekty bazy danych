@@ -5,9 +5,12 @@ Indeksy pojedyncze:
 nazwa województwa
 nazwa powiatu
 nazwa gminy
-ludność województwa
-ludność powiatu
-ludność gminy
+ludność województwa rosnący
+ludność powiatu rosnący
+ludność gminy rosnący
+ludność województwa malejący
+ludność powiatu malejący
+ludność gminy malejący
 powierzchnia województwa
 powierzchnia powiatu
 powierzchnia gminy
@@ -36,6 +39,7 @@ Widok pokazujący nazwę województwa, stolicę województwa i możliwą drugą 
 Widok pokazujący nazwę województwa, stolicę województwa, powierzchnię województwa, ludność województwa i inne dane województwa
 Widok pokazujący nazwę powiatu, stolicę powiatu, powierzchnię powiatu, ludność powiatu i inne dane powiatu
 Widok pokazujący nazwę gminy, stolicę gminy, powierzchnię gminy, ludność gminy i inne dane gminy
+Widok pokazujący nazwę województwa, stolicę województwa, powiaty jakie się w nim znajdują (nazwa powiatu, typ powiatu) i gminy jakie znajdują się w tym województwie (nazwa gminy, typ gminy)
 
 Poziomy uprawnień:
 użytkownik podstawowy, będzie mógł tylko odczytywać dane z bazy (dostęp do tablicy województw, powiatów i gmin typu read only)
