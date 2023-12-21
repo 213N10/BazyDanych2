@@ -18,8 +18,8 @@ public class Main {
 
 
         String url = "jdbc:mysql://localhost:3306/administracjaRP";
-        String username = "admin";
-        String password = "adros";
+        String username = ""; //username
+        String password = ""; //password
         try(Connection connection = DriverManager.getConnection(url,username,password)){
 
         try(BufferedReader buffer = new BufferedReader(new FileReader("TERC_Urzedowy_2023-12-21.csv"))) {
