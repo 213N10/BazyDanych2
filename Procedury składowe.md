@@ -3,18 +3,20 @@
 #### DodajWojewództwo:
 ```
 SQL
-CREATE PROCEDURE DodajWojewodstwo 
-( 
-    IN p_Nazwa varchar(255), 
-    IN p_MiastoWojewodzkie varchar(255), 
-    IN p_WspolrzedneMiastaWojewodzkiego varchar(255), 
-    IN p_DrugieMiastoWojewodzkie varchar(255), 
-    IN p_WspolrzedneDrugiegoMiastaWojewodzkiego varchar(255),
+CREATE PROCEDURE DodajWojewodstwo
+(
+    IN p_Nazwa varchar(255),
+    IN p_MiastoWojewodzkie varchar(255),
+    IN p_WspolrzedneMiastaWojewodzkiegoX varchar(255),
+    IN p_WspolrzedneMiastaWojewodzkiegoY varchar(255),
+    IN p_DrugieMiastoWojewodzkie varchar(255),
+    IN p_WspolrzedneDrugiegoMiastaWojewodzkiegoX varchar(255),
+    IN p_WspolrzedneDrugiegoMiastaWojewodzkiegoY varchar(255),
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
-    INSERT INTO Wojewodstwa (Nazwa, Miasto_wojewodzkie, Współrzędne_miasta_wojewódzkiego, Drugie_miasto_wojewódzkie, Współrzędne_drugiego_miasta_wojewódzkiego, dodatkowe_informacje)
-    VALUES (p_Nazwa, p_MiastoWojewodzkie, p_WspolrzedneMiastaWojewodzkiego, p_DrugieMiastoWojewodzkie, p_WspolrzedneDrugiegoMiastaWojewodzkiego, p_DodatkoweInformacje);
+    INSERT INTO wojewodztwa (Nazwa, Miasto_wojewodzkie, Wspolrzedne_miasta_wojewodzkiego_x,Wspolrzedne_miasta_wojewodzkiego_y, Drugie_miasto_wojewódzkie, Wspolrzedne_drugiego_miasta_wojewodzkiego_x,Wspolrzedne_drugiego_miasta_wojewodzkiego_y, inne_dane)
+    VALUES (p_Nazwa, p_MiastoWojewodzkie, p_WspolrzedneMiastaWojewodzkiegoX,p_WspolrzedneMiastaWojewodzkiegoY, p_DrugieMiastoWojewodzkie, p_WspolrzedneDrugiegoMiastaWojewodzkiegoX,p_WspolrzedneDrugiegoMiastaWojewodzkiegoY, p_DodatkoweInformacje);
 END;
 ```
 #### EdytujDaneWojewództwa
@@ -25,20 +27,24 @@ CREATE PROCEDURE EdytujDaneWojewodztwa
     IN p_IdTerytowe integer,
     IN p_Nazwa varchar(255),
     IN p_MiastoWojewodzkie varchar(255),
-    IN p_WspolrzedneMiastaWojewodzkiego varchar(255),
+    IN p_WspolrzedneMiastaWojewodzkiegoX varchar(255),
+    IN p_WspolrzedneMiastaWojewodzkiegoY varchar(255),
     IN p_DrugieMiastoWojewodzkie varchar(255),
-    IN p_WspolrzedneDrugiegoMiastaWojewodzkiego varchar(255),
+    IN p_WspolrzedneDrugiegoMiastaWojewodzkiegoX varchar(255),
+    IN p_WspolrzedneDrugiegoMiastaWojewodzkiegoY varchar(255),
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
-    UPDATE Województwa
-    SET 
+    UPDATE wojewodztwa
+    SET
         Nazwa = p_Nazwa,
         Miasto_wojewodzkie = p_MiastoWojewodzkie,
-        Współrzędne_miasta_wojewódzkiego = p_WspolrzedneMiastaWojewodzkiego,
+        Wspolrzedne_miasta_wojewodzkiego_x = p_WspolrzedneMiastaWojewodzkiegoX,
+        Wspolrzedne_miasta_wojewodzkiego_y = p_WspolrzedneMiastaWojewodzkiegoY,
         Drugie_miasto_wojewódzkie = p_DrugieMiastoWojewodzkie,
-        Współrzędne_drugiego_miasta_wojewódzkiego = p_WspolrzedneDrugiegoMiastaWojewodzkiego,
-        dodatkowe_informacje = p_DodatkoweInformacje
+        Wspolrzedne_drugiego_miasta_wojewodzkiego_x = p_WspolrzedneDrugiegoMiastaWojewodzkiegoX,
+        Wspolrzedne_drugiego_miasta_wojewodzkiego_y = p_WspolrzedneDrugiegoMiastaWojewodzkiegoY,
+        inne_dane = p_DodatkoweInformacje
     WHERE Id_terytowe = p_IdTerytowe;
 END;
 ```
@@ -51,10 +57,10 @@ CREATE PROCEDURE WyszukajWojewodztwo
 )
 BEGIN
     SELECT *
-    FROM JednostkiTerytorialne
+    FROM wojewodztwa
     WHERE Nazwa LIKE CONCAT('%', p_Kryterium, '%')
        OR Miasto_wojewodzkie LIKE CONCAT('%', p_Kryterium, '%')
-       OR dodatkowe_informacje LIKE CONCAT('%', p_Kryterium, '%')
+       OR inne_dane LIKE CONCAT('%', p_Kryterium, '%')
        OR Drugie_miasto_wojewódzkie LIKE CONCAT('%', p_Kryterium, '%');
 END;
 ```
@@ -66,14 +72,15 @@ CREATE PROCEDURE DodajPowiat
 (
     IN p_Nazwa varchar(255),
     IN p_StolicaPowiatu varchar(255),
-    IN p_WspolrzedneStolicyPowiatu varchar(255),
+    IN p_WspolrzedneStolicyPowiatuX varchar(255),
+    IN p_WspolrzedneStolicyPowiatuY varchar(255),
     IN p_TypPowiatu integer(10),
     IN p_Wojewodztwo integer(10),
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
-    INSERT INTO JednostkiAdministracyjne (Nazwa, Stolica_powiatu, Współrzędne_stolicy_powiatu, Typ_powiatu, Województwo_w_którym_się_znajduje, dodatkowe_informacje)
-    VALUES (p_Nazwa, p_StolicaPowiatu, p_WspolrzedneStolicyPowiatu, p_TypPowiatu, p_Wojewodztwo, p_DodatkoweInformacje);
+    INSERT INTO powiaty (Nazwa, Stolica_powiatu, Wspolrzedne_stolicy_x, Wspolrzedne_stolicy_y, Typ_powiatu, Wojewodztwo_w_ktorym_sie_znajduje, inne_dane)
+    VALUES (p_Nazwa, p_StolicaPowiatu, p_WspolrzedneStolicyPowiatuX,p_WspolrzedneStolicyPowiatuY, p_TypPowiatu, p_Wojewodztwo, p_DodatkoweInformacje);
 END;
 ```
 #### EdytujDanePowiatu
@@ -84,20 +91,22 @@ CREATE PROCEDURE EdytujDanePowiatu
     IN p_IdTerytowe integer(10),
     IN p_Nazwa varchar(255),
     IN p_StolicaPowiatu varchar(255),
-    IN p_WspolrzedneStolicyPowiatu varchar(255),
+    IN p_WspolrzedneStolicyPowiatuX varchar(255),
+    IN p_WspolrzedneStolicyPowiatuY varchar(255),
     IN p_TypPowiatu integer(10),
     IN p_Wojewodztwo integer(10),
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
     UPDATE Powiaty
-    SET 
+    SET
         Nazwa = p_Nazwa,
         Stolica_powiatu = p_StolicaPowiatu,
-        Współrzędne_stolicy_powiatu = p_WspolrzedneStolicyPowiatu,
+        Wspolrzedne_stolicy_x = p_WspolrzedneStolicyPowiatuX,
+        Wspolrzedne_stolicy_y = p_WspolrzedneStolicyPowiatuY,
         Typ_powiatu = p_TypPowiatu,
-        Województwo_w_którym_się_znajduje = p_Wojewodztwo,
-        dodatkowe_informacje = p_DodatkoweInformacje
+        Wojewodztwo_w_ktorym_sie_znajduje = p_Wojewodztwo,
+        inne_dane = p_DodatkoweInformacje
     WHERE Id_terytowe = p_IdTerytowe;
 END;
 ```
@@ -110,10 +119,10 @@ CREATE PROCEDURE WyszukajPowiat
 )
 BEGIN
     SELECT *
-    FROM JednostkiAdministracyjne
+    FROM powiaty
     WHERE Nazwa LIKE CONCAT('%', p_Kryterium, '%')
        OR Stolica_powiatu LIKE CONCAT('%', p_Kryterium, '%')
-       OR dodatkowe_informacje LIKE CONCAT('%', p_Kryterium, '%');
+       OR inne_dane LIKE CONCAT('%', p_Kryterium, '%');
 END;
 ```
 ### Gminy:
@@ -124,7 +133,8 @@ CREATE PROCEDURE DodajGmine
 (
     IN p_Nazwa varchar(255),
     IN p_StolicaGminy varchar(255),
-    IN p_WspolrzedneStolicyGminy varchar(255),
+    IN p_WspolrzedneStolicyGminyX varchar(255),
+    IN p_WspolrzedneStolicyGminyY varchar(255),
     IN p_TypGminy integer(10),
     IN p_Powierzchnia float(10),
     IN p_Ludnosc integer(10),
@@ -132,8 +142,8 @@ CREATE PROCEDURE DodajGmine
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
-    INSERT INTO JednostkiAdministracyjne (Nazwa, Stolica_gminy, Współrzędne_stolicy_gminy, Typ_gminy, Powierzchnia, Ludnosc, Powiat_w_którym_się_znajduje, dodatkowe_informacje)
-    VALUES (p_Nazwa, p_StolicaGminy, p_WspolrzedneStolicyGminy, p_TypGminy, p_Powierzchnia, p_Ludnosc, p_Powiat, p_DodatkoweInformacje);
+    INSERT INTO gminy (Nazwa, Stolica_gminy, Wspolrzedne_stolicy_x,Wspolrzedne_stolicy_y, Typ_gminy, Powierzchnia, Ludnosc, Powiat_w_ktorym_sie_znajduje, inne_dane)
+    VALUES (p_Nazwa, p_StolicaGminy, p_WspolrzedneStolicyGminyX,p_WspolrzedneStolicyGminyY, p_TypGminy, p_Powierzchnia, p_Ludnosc, p_Powiat, p_DodatkoweInformacje);
 END;
 ```
 #### EdytujDaneGminy
@@ -144,7 +154,8 @@ CREATE PROCEDURE EdytujDaneGminy
     IN p_IdTerytowe integer(10),
     IN p_Nazwa varchar(255),
     IN p_StolicaGminy varchar(255),
-    IN p_WspolrzedneStolicyGminy varchar(255),
+    IN p_WspolrzedneStolicyGminyX varchar(255),
+    IN p_WspolrzedneStolicyGminyY varchar(255),
     IN p_TypGminy integer(10),
     IN p_Powierzchnia float(10),
     IN p_Ludnosc integer(10),
@@ -153,15 +164,16 @@ CREATE PROCEDURE EdytujDaneGminy
 )
 BEGIN
     UPDATE Gminy
-    SET 
+    SET
         Nazwa = p_Nazwa,
         Stolica_gminy = p_StolicaGminy,
-        Współrzędne_stolicy_gminy = p_WspolrzedneStolicyGminy,
+        Wspolrzedne_stolicy_x = p_WspolrzedneStolicyGminyX,
+        Wspolrzedne_stolicy_y = p_WspolrzedneStolicyGminyY,
         Typ_gminy = p_TypGminy,
         Powierzchnia = p_Powierzchnia,
         Ludnosc = p_Ludnosc,
-        Powiat_w_którym_się_znajduje = p_Powiat,
-        dodatkowe_informacje = p_DodatkoweInformacje
+        Powiat_w_ktorym_sie_znajduje = p_Powiat,
+        inne_dane = p_DodatkoweInformacje
     WHERE Id_terytowe = p_IdTerytowe;
 END;
 ```
@@ -174,10 +186,10 @@ CREATE PROCEDURE WyszukajGmine
 )
 BEGIN
     SELECT *
-    FROM JednostkiAdministracyjne
+    FROM gminy
     WHERE Nazwa LIKE CONCAT('%', p_Kryterium, '%')
        OR Stolica_gminy LIKE CONCAT('%', p_Kryterium, '%')
-       OR dodatkowe_informacje LIKE CONCAT('%', p_Kryterium, '%');
+       OR inne_dane LIKE CONCAT('%', p_Kryterium, '%');
 END;
 ```
 
