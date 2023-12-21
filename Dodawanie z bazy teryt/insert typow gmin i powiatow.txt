@@ -1,0 +1,6 @@
+INSERT INTO typ_gminy (Typ)
+VALUES ('gmina miejska'), ('gmina wiejska'),('gmina miejsko-wiejska'), ('miasto w gminie miejsko-wiejskiej'),
+       ('obszar wiejski w gminie miejsko-wiejskiej'), ('dzielnica w m.st. Warszawa'), ('delegatury miast: Kraków, Łódź, Poznań i Wrocław');
+
+INSERT INTO typy_powiatow (Typ)
+VALUES ('powiat'), ('miasto na prawach powiatu');
