@@ -14,7 +14,8 @@ CREATE TABLE Gminy (Id_terytowe int(10) NOT NULL AUTO_INCREMENT,
                     INDEX (Nazwa), INDEX (Stolica_gminy),
                     INDEX (Powierzchnia),
                     INDEX (Ludnosc), INDEX (Powiat_w_ktorym_sie_znajduje),
-                    INDEX (Typ_gminy));
+                    INDEX (Typ_gminy),
+                    CHECK (ludnosc >= 0 AND powierzchnia > 0));
 
 CREATE TABLE Typ_gminy (Id int(10) NOT NULL AUTO_INCREMENT, Typ varchar(50) NOT NULL UNIQUE, PRIMARY KEY (Id));
 
