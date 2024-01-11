@@ -2,11 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
+from .models import Wojewodztwa
 
 
 def index(request):
-    return HttpResponse("Hello world")
+    wojeweodztwa = Wojewodztwa.objects.all()
+    context = {
+        'wojeweodztwa' : wojeweodztwa,
+    }
 
-def login(request):
+    return render(request, 'index.html')
+
+def test(request):
     return HttpResponse("Logowanie")
 
