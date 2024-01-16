@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{gmina.nazwa}} Information</title>
+</head>
+<body>
+    <h1>{{gmina.nazwa}} Information</h1>
+    <ul>
+        <li>Nazwa: {{ gmina.nazwa }}</li>
+        <li>id terytowe: {{ gmina.id_terytowe }} </li>
+        <li>Populacja: {{ gmina.ludnosc }}</li>
+        <li>powierzchnia: {{ gmina.powierzchnia }} km²</li>
+        <li>stolica gminy: {{ gmina.stolica_gminy }} km²</li>
+        <li>wspolrzedne_stolicy_x: {{ gmina.wspolrzedne_stolicy_x }}</li>
+        <li>wspolrzedne_stolicy_y: {{ gmina.wspolrzedne_stolicy_y }}</li>
+        <li>typ gminy: {{ gmina.typ_gminy }}</li>
+        <li>powiat_w_ktorym_sie_znajduje: {{gmina.powiat_w_ktorym_sie_znajduje}}</li>
+        <li>inne_dane: {{ gmina.inne_dane }}</li>
+        
+    </ul>
+</body>
+</html>

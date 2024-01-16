@@ -1,7 +1,7 @@
 {% if wyniki %}
     <ul>
         {% for wojew in wyniki %}
-            <li>{{ wojew.nazwa }} {{ wojew.miasto_wojewodzkie }}</li>
+            <li><a href="{% url 'show_woj' woj_id=wojew.id_terytowe %}">{{ wojew.nazwa }} {{ wojew.miasto_wojewodzkie }}</a></li>
         {% endfor %}
     </ul>
 {% else %}

@@ -1,0 +1,9 @@
+{% if wyniki %}
+    <ul>
+        {% for gmina in wyniki %}
+            <li><a href="{% url 'show_gmi' woj_id=gmina.id_terytowe %}">{{ gmina.nazwa }} {{ gmina.stolica_gminy }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak wyników dla podanego powiatu.</p>
+{% endif %}
