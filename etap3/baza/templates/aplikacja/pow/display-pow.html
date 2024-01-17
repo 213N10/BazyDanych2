@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <h2>Lista Powiatów</h2>
+
+    <ul>
+        {% for powiat in powiaty %}
+            <li><a href="{% url 'update_pow' powiat.id_terytowe %}">{{ powiat.nazwa }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

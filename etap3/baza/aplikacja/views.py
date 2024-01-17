@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse
 from .models import Wojewodztwa, Powiaty, Gminy
-from .forms import searchWoj, searchPow, searchGmi, createWoj, createPow, createGmi
+from .forms import searchWoj, searchPow, searchGmi, createWoj, createPow, createGmi, editDeleteWoj, editDeletePow, \
+    editDeleteGmi
 
 
 def index(request):
@@ -39,6 +40,35 @@ def createWojew(request):
 
     return render(request, 'aplikacja/woj/create-woj.html', {'form': form})
 
+def displayWojew(request):
+    wojewodztwa = Wojewodztwa.objects.all()
+    return render(request, 'aplikacja/woj/display-woj.html', {'wojewodztwa': wojewodztwa})
+
+# views.py
+
+def updateWojew(request, woj_id):
+    wojewodztwo = get_object_or_404(Wojewodztwa, pk=woj_id)
+
+    if request.method == 'POST':
+        form = editDeleteWoj(request.POST, instance=wojewodztwo)
+
+        if form.is_valid():
+            action = request.POST.get('action')
+
+            if action == 'delete':
+                wojewodztwo.delete()
+                return redirect('display_woj')  # Redirect to a success page after deletion
+
+            elif action == 'save':
+                form.save()
+                return redirect('display_woj')  # Redirect to a success page after saving
+
+    else:
+        form = editDeleteWoj(instance=wojewodztwo)
+
+    return render(request, 'aplikacja/woj/update-woj.html', {'form': form, 'woj_id':woj_id})
+
+
 def searchPowiat(request):
     if request.method == 'POST':
         form = searchPow(request.POST)
@@ -66,6 +96,34 @@ def createPowiat(request):
 
     return render(request, 'aplikacja/pow/create-pow.html', {'form': form})
 
+def displayPowiat(request):
+    powiaty = Powiaty.objects.all()
+    return render(request, 'aplikacja/pow/display-pow.html', {'powiaty': powiaty})
+
+# views.py
+
+def updatePowiat(request, woj_id):
+    powiat = get_object_or_404(Powiaty, pk=woj_id)
+
+    if request.method == 'POST':
+        form = editDeletePow(request.POST, instance=powiat)
+
+        if form.is_valid():
+            action = request.POST.get('action')
+
+            if action == 'delete':
+                powiat.delete()
+                return redirect('display_pow')  # Redirect to a success page after deletion
+
+            elif action == 'save':
+                form.save()
+                return redirect('display_pow')  # Redirect to a success page after saving
+
+    else:
+        form = editDeletePow(instance=powiat)
+
+    return render(request, 'aplikacja/pow/update-pow.html', {'form': form, 'woj_id':woj_id})
+
 def searchGmina(request):
     if request.method == 'POST':
         form = searchGmi(request.POST)
@@ -92,3 +150,31 @@ def createGmina(request):
         form = createGmi()
 
     return render(request, 'aplikacja/gmina/create-gmina.html', {'form': form})
+
+def displayGmina(request):
+    gminy = Gminy.objects.all()
+    return render(request, 'aplikacja/gmina/display-gmi.html', {'gminy': gminy})
+
+# views.py
+
+def updateGmina(request, woj_id):
+    gmina = get_object_or_404(Gminy, pk=woj_id)
+
+    if request.method == 'POST':
+        form = editDeleteGmi(request.POST, instance=gmina)
+
+        if form.is_valid():
+            action = request.POST.get('action')
+
+            if action == 'delete':
+                gmina.delete()
+                return redirect('display_gmi')  # Redirect to a success page after deletion
+
+            elif action == 'save':
+                form.save()
+                return redirect('display_gmi')  # Redirect to a success page after saving
+
+    else:
+        form = editDeleteGmi(instance=gmina)
+
+    return render(request, 'aplikacja/gmina/update-gmi.html', {'form': form, 'woj_id':woj_id})

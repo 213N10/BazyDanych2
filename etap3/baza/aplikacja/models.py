@@ -16,8 +16,8 @@ class Gminy(models.Model):
     powierzchnia = models.FloatField(db_column='Powierzchnia', blank=True, null=True)  # Field name made lowercase.
     ludnosc = models.IntegerField(db_column='Ludnosc', blank=True, null=True)  # Field name made lowercase.
     inne_dane = models.CharField(db_column='Inne_dane', max_length=10000, blank=True, null=True)  # Field name made lowercase.
-    powiat_w_ktorym_sie_znajduje = models.ForeignKey('Powiaty', models.DO_NOTHING, db_column='Powiat_w_ktorym_sie_znajduje')  # Field name made lowercase.
-    typ_gminy = models.ForeignKey('TypGminy', models.DO_NOTHING, db_column='Typ_gminy')  # Field name made lowercase.
+    powiat_w_ktorym_sie_znajduje = models.ForeignKey('Powiaty', db_column='Powiat_w_ktorym_sie_znajduje', on_delete=models.CASCADE)  # Field name made lowercase.
+    typ_gminy = models.ForeignKey('TypGminy', db_column='Typ_gminy',on_delete=models.CASCADE)  # Field name made lowercase.
 
     def __str__(self):
         return self.nazwa
@@ -36,8 +36,8 @@ class Powiaty(models.Model):
     powierzchnia = models.FloatField(db_column='Powierzchnia', blank=True, null=True)  # Field name made lowercase.
     ludnosc = models.IntegerField(db_column='Ludnosc', blank=True, null=True)  # Field name made lowercase.
     inne_dane = models.CharField(db_column='Inne_dane', max_length=10000, blank=True, null=True)  # Field name made lowercase.
-    wojewodztwo_w_ktorym_sie_znajduje = models.ForeignKey('Wojewodztwa', models.DO_NOTHING, db_column='Wojewodztwo_w_ktorym_sie_znajduje')  # Field name made lowercase.
-    typ_powiatu = models.ForeignKey('TypyPowiatow', models.DO_NOTHING, db_column='Typ_powiatu')  # Field name made lowercase.
+    wojewodztwo_w_ktorym_sie_znajduje = models.ForeignKey('Wojewodztwa', db_column='Wojewodztwo_w_ktorym_sie_znajduje', on_delete=models.CASCADE)  # Field name made lowercase.
+    typ_powiatu = models.ForeignKey('TypyPowiatow', db_column='Typ_powiatu',on_delete=models.CASCADE)  # Field name made lowercase.
 
     def __str__(self):
         return self.nazwa
