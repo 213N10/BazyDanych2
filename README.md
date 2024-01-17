@@ -1,57 +1,97 @@
 # BazyDanych2
-### Tymczasowe readme:
+## Instalacja i konfigurowanie systemu: Administracja RP
+0. Zalecane jest stworzenie wirtualnego środowiska
+1. Sklonuj repozytorium na komputer/server hostujący aplikacje
+2. w terminalu użyj komendy `pip install django mysqlclient`
+3. Aby stworzyć użytkownika z uprawnieniami administratora wejdź do folderu z aplikacją i w terminalu wpisz `python .\manage.py createsuperuser`
+4. Uzupełnij wymagane dane
+5. Aby uruchomić aplikację: `python .\manage.py runserver`
+6. Aplikacja połączy się z naszymi serverami automatycznie.
+7. Aplikacja powinna działać na zdefiniowanym w kontrakcie ip/domenie
 
-### Plan zajęć/zagadnienia:
-~~1. Zajęcia organizacyjne. Podział na grupy i wybór tematów projektów.~~  
-~~2. Opis słowny systemu.~~  
-### _3. Faza projektowa_ ***[Work in progress]***
-- Model konceptualny bazy – diagram związków encji -> Jędrek
-- Model logiczny bazy -> Jędrek
-- Model fizyczny bazy -> Adrian
-- Modelowanie pozostałych elementów bazy danych -> Adrian
-- Modelowanie aplikacji dostępowej -> Janek
-4. Implementacja bazy danych
-	- Skrypty SQL’owe zawierające definicje obiektów bazy (tabele, widoki, funkcje pamiętane, procedury, wyzwalacze) oraz dane testowe  
-    - Plik lub pliki bazowe wypełnione danymi testowym  
-5. Implementacja aplikacji dostępowej  
-    - Komplet plików źródłowych aplikacji klienckiej  
-    - Plik wykonywalny aplikacji  
-    - Pliki konfiguracyjne oraz krótka instrukcja instalacji i konfiguracji środowiska
-(np. parametry źródła ODBC, konta i uprawnienia użytkowników, hasła).  
-6. Każdy etap prac jest dokumentowany.
-7. Dokumentacja całościowa jest elementem zaliczenia projektu. Dokumentację projektu w postaci
-elektronicznej w repozytorium lub na płycie CD/DVD należy oddać w nieprzekraczalnym terminie
-ostatnich zajęć projektowych.
-#### Zalecane narzędzia:
-1. DBMS: Oracle (Application Express), MySQL, Maria DB, PostgreSQL, Microsoft SQL Server, SQLite,
-Interbase (Firebird) i inne.
-2. Języki programowania: SQL (T-SQL, PL/SQL), PHP, Python, C/C++, C#, Java i inne.
-3. Programy do modelowania baz danych:
-Visual Paradigm Community Edition (https://www.visual-paradigm.com/download/community.jsp),
-IBM Rational Data Architect, MySQL Workbench (https://www.mysql.com/products/workbench/),
-Visio, dia
-narzędzia on-line: draw.io (https://app.diagrams.net/), https://dbdiagram.io/,
-https://www.dbdesigner.net/, https://online.visual-paradigm.com/, https://erdplus.com/,
-https://sqldbm.com/Home/
-i inne.
-4. Programy do tworzenia makiet (ang. mockup) interfejsu użytkownika (UI):
-MockupScreens (http://www.mockupscreens.com), Balsamiq Mockups (https://balsamiq.com),
-Mockplus (https://www.mockplus.com), Wireframe.cc (https://wireframe.cc), Moqups
-(https://moqups.com), MockFlow (https://www.mockflow.com), Google Drive Drawings.
-5. Programy do modelowania UML: patrz punkt 3. oraz np. ArgoUML, StarUML – pełniejsza lista pod
-adresem: https://pl.wikipedia.org/wiki/Lista_narz%C4%99dzi_UML.
-Literatura:
-[1] T. Connolly, C. Begg, Systemy baz danych. Praktyczne metody projektowania,
-implementacji i zarządzania, t. 1., Wyd. RM, Warszawa 2004.  
-[2] H. Mazur, Z. Mazur, Projektowanie relacyjnych baz danych, Oficyna Wydawnicza
-Politechniki Wrocławskiej, Wrocław 2004.  
-[4] H. Mazur, Z. Mazur, Metodyka strukturalna projektowania relacyjnych baz danych, Wydział
-Informatyki i Zarządzania Politechniki Wrocławskiej, Wrocław 2020.  
-[3] H. Garcia - Molina, J. D. Ullman, J. Widom, Systemy baz danych Pełny wykład, WN-T, Warszawa
-2006.  
-[4] H. Garcia-Molina, J. D. Ullman, J. Widom, Systemy baz danych. Kompletny podręcznik. Wydanie II,
-Helion, Gliwice 2011.  
-[5] J. L. Harrington, SQL dla każdego, Wyd. MIKOM, Warszawa 2005.  
-[6] J. Celko, SQL zaawansowane techniki programowania, PWN. Warszawa 2008  
-[7] G. Booch, J. Rumbaugh, I. Jacobson, UML. Przewodnik użytkownika, WN-T, Warszawa  
-2002
+## Instrukcja użytkowania aplikacji- administrator bazy danych:  
+Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz usuwać istniejące. Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytować użytkowników (kolejnych administratorów, administratorów danych bądź zdefiniowanych przez siebie) oraz przypisywać im grupy z odpowiednimi uprawnieniami.
+[tutaj wstawienie ss panelu administratora]
+- Dodawanie danych  
+- Edytowanie danych   
+- Usuwanie danych  
+[wstawić fotki]
+
+
+## Instrukcja użytkowania aplikacji- administrator danych
+Konta administratorów danych będą tworzone przez administrartora bazy danych, z użyciem panelu administracyjnego. Hasło użytkownika musi mieć więcej niż 8 znaków w tym znaki i litery.
+[tutaj zaczekam czy uda się zaimplementować]
+
+## Instrukcja użytkowania aplikacji- niezalogowany użytkownik
+Po wpisaniu nr ip/nazwy domeny internetowej użytkownik zostanie skierowany na stronę główną. Na stronie głównej użytkownik będzie miał opcje zalogowania się, jeśli jest pracownikiem, lub korzystania dalej jako niezalogowany użytkownik (dalej również nazywany NZU). Jako NZU, użytkownik będzie miał do wyboru:
+### Funkcjonalności dla niezalogowanego użytkownika
+1. Wyszukiwanie województw
+2. Wyszukiwanie powiatów
+3. Wyszukiwanie gmin
+[wstawić fotkę]
+
+Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sprawdzić szczegóły interesującego go wyniku np.: dla gminy będzie to:
+- nazwa
+- id z terytu
+- populacja
+- powierzchnia
+- powiat w którym się znajduje
+- stolica gminy
+- typ gminy
+- współrzędne geograficzne x oraz y stolicy gminy
+- inne dane
+[wstawić fotkę]
+
+Dla powiatu użytkowik będzie miał podgląd do inforamcji takich jak:
+- nazwa
+- id z terytu
+- stolica powiatu
+- współrzędne geograficzne x oraz y dla miasta powiatowego
+- powierzchnia powiatu
+- ludność powiatu
+- typ powiatu
+- województwo, w którym znajduje się powiat
+- inne dane
+[wstawić fotkę]
+
+NZU nie będzie mieć dostępu do funkcji modyfikujących zawartość bazy danych przez względy bezpieczeństwa. Zmiany do bazy danych mogą wprowadzać tylko uprawnieni pracownicy.
+
+## Testowanie opracowanych funkcji systemu
+[moim zdaniem wystarczy opisać i wrzucić fotki]
+## Omówienie rozwiązań programistycznych
+[tutaj jeszcze dodam jutro]
+
+### Implementacja interfejsu dostępu do bazy danych
+Do połączenia się z bazą danych wykorzystaliśmy wbudowany w django 'connector' do baz mySQL, jednak by móc z niego skorzystać musieliśmy pobrać pakiet `mysqlclient`, który dostarcza niskopoziomowy interfejs do komunikacji z bazą danych MySQL.
+
+Połączenie z bazą danych odbyło się w bardzo prosty sposób poprzez ustawienie odpowiednich wartości w słowniku DATABASES, przechowywanym w pliku z ustawieniami aplikacji Django.
+
+Modele Django wykorzystywane do reprezentacji obiektów z bazy danych wygenerowaliśmy za pomocą komendy wbudwanej w django `python manage.py inspectdb`.
+
+Za pomocą naszej aplikacji można wykonywać wszystkie operacje CRUD (Create, Read, Update, Delete).
+
+### Implementacja wybranych funkcjonalności systemu
+
+### Mechanizmy bezpieczeństwa
+W naszej aplikacji wykorzystaliśmy domyślne zabezpieczenia Django takie jak:
+- sprawdzenie czy hasło ma min. 8 znaków
+- czy hasło nie jest w bazie najpopularniejszych haseł
+- czy hasło nie składa się z samych cyfr
+- czy hasło nie pokrywa się za bardzo z atrybutami użytkownika
+
+Dodatkowo korzystamy również z wbudowanych w django funkcjonalności takich jak:
+
+1. **Cross Site Scripting (XSS) Protection**: Django szablonuje silnik, który domyślnie zabezpiecza przed większością ataków XSS, poprzez automatyczne zabezpieczanie wyjścia szablonów.
+
+2. **Cross Site Request Forgery (CSRF) Protection**: Django ma wbudowane zabezpieczenia przeciwko atakom CSRF. Wymaga to użycia odpowiedniego znacznika w każdym formularzu, który prowadzi do zmiany danych.
+
+3. **SQL Injection Protection**: Django chroni przed atakami SQL Injection poprzez użycie ORM (Object-Relational Mapping). Każde zapytanie do bazy danych jest automatycznie zabezpieczane.
+
+4. **Clickjacking Protection**: Django ma wbudowane zabezpieczenia przeciwko atakom Clickjacking, poprzez użycie middleware `X-Frame-Options`.
+
+5. **Host Header Validation**: Django chroni przed atakami, które mogą prowadzić do niebezpiecznego zachowania poprzez manipulację nagłówkiem hosta.
+
+6. **Secure Password Handling**: Django używa bezpiecznych algorytmów do przechowywania haseł. Hasła są przechowywane jako "hash", co oznacza, że oryginalne hasło nie jest zapisywane i nie może być odzyskane.
+
+7. **HTTPS Support**: Django obsługuje użycie HTTPS, co jest ważne dla bezpiecznej komunikacji w Internecie oraz ułatwi migrację strony z http na https.
+
