@@ -1,0 +1,16 @@
+<!-- templates/list_woj.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <h2>Lista Województw</h2>
+
+    <ul>
+        {% for wojewodztwo in wojewodztwa %}
+            <li><a href="{% url 'update_woj' wojewodztwo.id_terytowe %}">{{ wojewodztwo.nazwa }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
