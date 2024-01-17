@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse
 from .models import Wojewodztwa, Powiaty, Gminy
-from .forms import searchWoj, searchPow, searchGmi
+from .forms import searchWoj, searchPow, searchGmi, createWoj, createPow, createGmi
 
 
 def index(request):
@@ -27,6 +27,18 @@ def showWojew(request, woj_id):
     wojewodztwo = Wojewodztwa.objects.get(pk=woj_id)
     return render(request, 'woj/show-woj.html', {'wojewodztwo': wojewodztwo})
 
+def createWojew(request):
+    if request.method == 'POST':
+        form = createWoj(request.POST)
+        if form.is_valid():
+            form.save()
+            wojewodztwo = form.save()  # Save the form and get the instance
+            return redirect('show_woj', woj_id=wojewodztwo.id_terytowe)
+    else:
+        form = createWoj()
+
+    return render(request, 'aplikacja/woj/create-woj.html', {'form': form})
+
 def searchPowiat(request):
     if request.method == 'POST':
         form = searchPow(request.POST)
@@ -42,6 +54,18 @@ def showPowiat(request, woj_id):
     powiat = Powiaty.objects.get(pk=woj_id)
     return render(request, 'pow/show-pow.html', {'powiat': powiat})
 
+def createPowiat(request):
+    if request.method == 'POST':
+        form = createPow(request.POST)
+        if form.is_valid():
+            form.save()
+            powiat = form.save()  # Save the form and get the instance
+            return redirect('show_pow', woj_id=powiat.id_terytowe)
+    else:
+        form = createPow()
+
+    return render(request, 'aplikacja/pow/create-pow.html', {'form': form})
+
 def searchGmina(request):
     if request.method == 'POST':
         form = searchGmi(request.POST)
@@ -56,3 +80,15 @@ def searchGmina(request):
 def showGmina(request, woj_id):
     gmina = Gminy.objects.get(pk=woj_id)
     return render(request, 'gmina/show-gmina.html', {'gmina': gmina})
+
+def createGmina(request):
+    if request.method == 'POST':
+        form = createGmi(request.POST)
+        if form.is_valid():
+            form.save()
+            gmina = form.save()  # Save the form and get the instance
+            return redirect('show_gmi', woj_id=gmina.id_terytowe)  # XD wszędzie jest woj_id
+    else:
+        form = createGmi()
+
+    return render(request, 'aplikacja/gmina/create-gmina.html', {'form': form})
