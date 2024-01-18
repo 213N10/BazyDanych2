@@ -2,7 +2,7 @@
 ## Instalacja i konfigurowanie systemu: Administracja RP
 0. Zalecane jest stworzenie wirtualnego środowiska
 1. Sklonuj repozytorium na komputer/server hostujący aplikacje
-2. w terminalu użyj komendy `pip install django mysqlclient`
+2. w terminalu użyj komendy `pip install django mysqlclient django-crispy-forms django-bootstrap4 `
 3. Aby stworzyć użytkownika z uprawnieniami administratora wejdź do folderu z aplikacją i w terminalu wpisz `python .\manage.py createsuperuser`
 4. Uzupełnij wymagane dane
 5. Aby uruchomić aplikację: `python .\manage.py runserver`
@@ -10,25 +10,68 @@
 7. Aplikacja powinna działać na zdefiniowanym w kontrakcie ip/domenie
 
 ## Instrukcja użytkowania aplikacji- administrator bazy danych:  
-Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz usuwać istniejące. Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytować użytkowników (kolejnych administratorów, administratorów danych bądź zdefiniowanych przez siebie) oraz przypisywać im grupy z odpowiednimi uprawnieniami.
-[tutaj wstawienie ss panelu administratora]
-- Dodawanie danych  
-- Edytowanie danych   
-- Usuwanie danych  
-[wstawić fotki]
+Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. 
+
+![](testyZrzuty/admin/logowanie.png)
+![](testyZrzuty/admin/panelAdmina.png)
+
+Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz usuwać istniejące. 
+![](testyZrzuty/admin/podgladObiektu.png)
+![](testyZrzuty/admin/przegladObiektow.png)
+
+Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytować użytkowników (kolejnych administratorów, administratorów danych bądź zdefiniowanych przez siebie) oraz przypisywać im grupy z odpowiednimi uprawnieniami.
+- Dodawanie użytkowników
+![](testyZrzuty/admin/uzytkownicy.png)
+- Edytowanie i usuwanie użytkowików:
+![](testyZrzuty/admin/uzytk-edycja.png)  
+![](testyZrzuty/admin/dostep-uzytk.png)
+- Tworzenie grup:
+![](testyZrzuty/admin/grupty.png)
+- Edycja i usuwanie grup
+![](testyZrzuty/admin/dostep.png)
+
 
 
 ## Instrukcja użytkowania aplikacji- administrator danych
 Konta administratorów danych będą tworzone przez administrartora bazy danych, z użyciem panelu administracyjnego. Hasło użytkownika musi mieć więcej niż 8 znaków w tym znaki i litery.
-[tutaj zaczekam czy uda się zaimplementować]
+
+Aby zalogować się jako administrator danych, użytkownik na stronie głównej musi nacisnąć przycisk zaloguj:
+![](testyZrzuty/admin%20danych/glowny.png)
+
+Po naciśnięciu przycisku bedzie musiał podać swoje dane uwierzytelniające:
+![](testyZrzuty/admin%20danych/panel%20logowania.jpg)
+W przypadku podania złych danych zostanie wyświetlony komunikat:
+![](testyZrzuty/admin%20danych/próbra%20wejścia%20bez%20zalogowania.jpg)
+
+Po zalogowaniu administrator danych będzie mieć dostęp do poniższego panelu:
+![](testyZrzuty/admin%20danych/panel%20administratora%20main.jpg)
+
+Administator danych może dodawać Gminy, Powiaty oraz Województwa za pomocą przycisku.
+
+W celu edytowania lub usunięcia danych administrator musi wybrać jaki obiekt usunąć. **W tym przykladzie posłużymy się powiatami, jednak proces jest taki sam dla pozostałych jednostek terytorialnych!**
+
+Po wybraniu powiatów pokazuje nam się lista wszystkich powiatów:
+![](testyZrzuty/admin%20danych/wyszuk.jpg)
+
+Następnie wybieramy interesujący nas powiat i wyświetla sie nam panel edycji z opcją usunięcia obiektu:
+![](testyZrzuty/admin%20danych/edycja.jpg)
+
+
+
 
 ## Instrukcja użytkowania aplikacji- niezalogowany użytkownik
-Po wpisaniu nr ip/nazwy domeny internetowej użytkownik zostanie skierowany na stronę główną. Na stronie głównej użytkownik będzie miał opcje zalogowania się, jeśli jest pracownikiem, lub korzystania dalej jako niezalogowany użytkownik (dalej również nazywany NZU). Jako NZU, użytkownik będzie miał do wyboru:
+Po wpisaniu nr ip/nazwy domeny internetowej użytkownik zostanie skierowany na stronę główną. Na stronie głównej użytkownik będzie miał opcje zalogowania się, jeśli jest pracownikiem, lub korzystania dalej jako niezalogowany użytkownik (dalej również nazywany NZU).
+![](testyZrzuty/user/glowna.png)
+ Jako NZU, użytkownik będzie miał do wyboru:
 ### Funkcjonalności dla niezalogowanego użytkownika
 1. Wyszukiwanie województw
 2. Wyszukiwanie powiatów
 3. Wyszukiwanie gmin
-[wstawić fotkę]
+![](testyZrzuty/user/wybor.png)
+**Dla przykładu zaprezentowano opcje wyszukania Gminy. Dla wyszukiwania powiatów i województw kroki będą jednakowe**
+![](testyZrzuty/user/wyszuk1.png)
+![](testyZrzuty/user/wyszuk2.png)
+![](testyZrzuty/user/wyniki.png)
 
 Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sprawdzić szczegóły interesującego go wyniku np.: dla gminy będzie to:
 - nazwa
@@ -40,7 +83,7 @@ Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sp
 - typ gminy
 - współrzędne geograficzne x oraz y stolicy gminy
 - inne dane
-[wstawić fotkę]
+![](testyZrzuty/user/podglad.png)
 
 Dla powiatu użytkowik będzie miał podgląd do inforamcji takich jak:
 - nazwa
@@ -52,12 +95,23 @@ Dla powiatu użytkowik będzie miał podgląd do inforamcji takich jak:
 - typ powiatu
 - województwo, w którym znajduje się powiat
 - inne dane
-[wstawić fotkę]
+
+Dla wojewodztwa użytkowik będzie miał podgląd do inforamcji takich jak::
+- nazwa
+- id z terytu
+- miasto wojewódzkie
+- współrzędne geograficzne x oraz y dla miasta wojewódzkiego
+- powierzchnia województwa
+- ludność województwa
+- drugie miasto wojewódzkie 
+- współrzędne geograficzne x oraz y dla drugiego miasta wojewódzkiego
+- inne dane
 
 NZU nie będzie mieć dostępu do funkcji modyfikujących zawartość bazy danych przez względy bezpieczeństwa. Zmiany do bazy danych mogą wprowadzać tylko uprawnieni pracownicy.
 
 ## Testowanie opracowanych funkcji systemu
-[moim zdaniem wystarczy opisać i wrzucić fotki]
+wszystkie funkcjonalności użytkownika zostały uważnie przetestowane, przez światowej klasy testerów manualnych specjalistów od cyberbezpieczeństwa. Po każdej aktualizacji i dodaniu nowej funkcjonalności aplikacja była testowana na losowo wybranej grupie badawczej.
+
 ## Omówienie rozwiązań programistycznych
 Aplikacja korzysta ze standardowej struktury proejktu Django.
 
@@ -75,8 +129,6 @@ Połączenie z bazą danych odbyło się w bardzo prosty sposób poprzez ustawie
 Modele Django wykorzystywane do reprezentacji obiektów z bazy danych wygenerowaliśmy za pomocą komendy wbudwanej w django `python manage.py inspectdb`.
 
 Za pomocą naszej aplikacji można wykonywać wszystkie operacje CRUD (Create, Read, Update, Delete).
-
-### Implementacja wybranych funkcjonalności systemu
 
 ### Mechanizmy bezpieczeństwa
 W naszej aplikacji wykorzystaliśmy domyślne zabezpieczenia Django takie jak:

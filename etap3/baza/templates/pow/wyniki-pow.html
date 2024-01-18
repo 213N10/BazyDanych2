@@ -1,7 +1,7 @@
 {% if wyniki %}
     <ul>
         {% for powiat in wyniki %}
-            <li><a href="{% url 'show_pow' woj_id=powiat.id_terytowe %}">{{ powiat.nazwa }} {{ powiat.stolica_powiatu }}</a></li>
+            <li><a href="{% url 'show_pow' woj_id=powiat.id_terytowe %}">{{ powiat.nazwa }} </a></li>
         {% endfor %}
     </ul>
 {% else %}
