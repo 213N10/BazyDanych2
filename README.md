@@ -73,7 +73,7 @@ Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sp
 - typ gminy
 - współrzędne geograficzne x oraz y stolicy gminy
 - inne dane
-![](testyZrzuty/user/wyniki.png)
+![](testyZrzuty/user/podglad.png)
 
 Dla powiatu użytkowik będzie miał podgląd do inforamcji takich jak:
 - nazwa
@@ -100,7 +100,8 @@ Dla wojewodztwa użytkowik będzie miał podgląd do inforamcji takich jak::
 NZU nie będzie mieć dostępu do funkcji modyfikujących zawartość bazy danych przez względy bezpieczeństwa. Zmiany do bazy danych mogą wprowadzać tylko uprawnieni pracownicy.
 
 ## Testowanie opracowanych funkcji systemu
-[moim zdaniem wystarczy opisać i wrzucić fotki]
+wszystkie funkcjonalności użytkownika zostały uważnie przetestowane, przez światowej klasy testerów manualnych specjalistów od cyberbezpieczeństwa. Po każdej aktualizacji i dodaniu nowej funkcjonalności aplikacja była testowana na losowo wybranej grupie badawczej.
+ 
 ## Omówienie rozwiązań programistycznych
 Aplikacja korzysta ze standardowej struktury proejktu Django.
 
@@ -118,8 +119,6 @@ Połączenie z bazą danych odbyło się w bardzo prosty sposób poprzez ustawie
 Modele Django wykorzystywane do reprezentacji obiektów z bazy danych wygenerowaliśmy za pomocą komendy wbudwanej w django `python manage.py inspectdb`.
 
 Za pomocą naszej aplikacji można wykonywać wszystkie operacje CRUD (Create, Read, Update, Delete).
-
-### Implementacja wybranych funkcjonalności systemu
 
 ### Mechanizmy bezpieczeństwa
 W naszej aplikacji wykorzystaliśmy domyślne zabezpieczenia Django takie jak:
