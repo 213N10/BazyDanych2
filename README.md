@@ -48,6 +48,16 @@ Po zalogowaniu administrator danych będzie mieć dostęp do poniższego panelu:
 
 Administator danych może dodawać Gminy, Powiaty oraz Województwa za pomocą przycisku.
 
+W celu edytowania lub usunięcia danych administrator musi wybrać jaki obiekt usunąć. **W tym przykladzie posłużymy się powiatami, jednak proces jest taki sam dla pozostałych jednostek terytorialnych!**
+
+Po wybraniu powiatów pokazuje nam się lista wszystkich powiatów:
+![](testyZrzuty/admin%20danych/wyszuk.jpg)
+
+Następnie wybieramy interesujący nas powiat i wyświetla sie nam panel edycji z opcją usunięcia obiektu:
+![](testyZrzuty/admin%20danych/edycja.jpg)
+
+
+
 
 ## Instrukcja użytkowania aplikacji- niezalogowany użytkownik
 Po wpisaniu nr ip/nazwy domeny internetowej użytkownik zostanie skierowany na stronę główną. Na stronie głównej użytkownik będzie miał opcje zalogowania się, jeśli jest pracownikiem, lub korzystania dalej jako niezalogowany użytkownik (dalej również nazywany NZU).
@@ -101,7 +111,7 @@ NZU nie będzie mieć dostępu do funkcji modyfikujących zawartość bazy danyc
 
 ## Testowanie opracowanych funkcji systemu
 wszystkie funkcjonalności użytkownika zostały uważnie przetestowane, przez światowej klasy testerów manualnych specjalistów od cyberbezpieczeństwa. Po każdej aktualizacji i dodaniu nowej funkcjonalności aplikacja była testowana na losowo wybranej grupie badawczej.
- 
+
 ## Omówienie rozwiązań programistycznych
 Aplikacja korzysta ze standardowej struktury proejktu Django.
 
