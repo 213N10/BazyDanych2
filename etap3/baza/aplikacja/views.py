@@ -13,6 +13,64 @@ def index(request):
 def test(request):
     return HttpResponse("Logowanie")
 
+def wyszukajAll(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        
+        if action == 'Wyszukaj Województwa':
+            return redirect('search_woj')  
+        elif action == 'Wyszukaj Gminy':
+            return redirect('search_gmi')  
+        elif action == 'Wyszukaj Powiaty':
+            return redirect('search_pow')  
+    return render(request, 'aplikacja/wyszukaj-all.html')
+
+def adminDanychMain(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        
+        if action == 'Województwo':
+            return redirect('edycja_woj')  
+        elif action == 'Powiat':
+            return redirect('edycja_powiat')  
+        elif action == 'Gmina':
+            return redirect('edycja_gmina')  
+        elif action == 'Wyszukaj':
+            return redirect('wyszukaj_all')
+        elif action == 'logout':
+            return redirect('logout')
+    return render(request, 'adminDanych/admin-danych-main.html')
+
+def edycjaGmina(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        
+        if action == 'Dodaj Gminę':
+            return redirect('create_gmi')  
+        if action == 'Wyświetl Listę Gmin':
+            return redirect('display_gmi')  
+    return render(request, 'aplikacja/gmina/edycja-gmina.html')
+
+def edycjaPowiat(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        
+        if action == 'Dodaj Powiat':
+            return redirect('create_pow')  
+        if action == 'Wyświetl Listę Powiatów':
+            return redirect('display_pow')  
+    return render(request, 'aplikacja/pow/edycja-powiat.html')
+
+def edycjaWoj(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        
+        if action == 'Dodaj Województwo':
+            return redirect('create_woj')  
+        if action == 'Wyświetl Listę Województw':
+            return redirect('display_woj')  
+    return render(request, 'aplikacja/woj/edycja-woj.html')
+
 def searchWojew(request):
     if request.method == 'POST':
         form = searchWoj(request.POST)

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowa Strona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .edycja-label,
+        .wyszukiwanie-label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        {% block content %}
+            <form method="POST" action="{% url 'admin_danych_main' %}">
+                {% csrf_token %}
+                <div class="wyszukiwanie-label">Wybierz katergorię do edycji:</div>
+                <input type="submit" class="action-button" name="action" value="Województwo" >
+                <input type="submit" class="action-button" name="action" value="Powiat" >
+                <input type="submit" class="action-button" name="action" value="Gmina"  >
+                <div class="wyszukiwanie-label">Wyszukaj dane:</div> 
+                <input type="submit" class="action-button" name="action" value="Wyszukaj"  >
+            </form>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="action-button">logout</button>
+            </form>
+        {% endblock %}
+    {% else %} 
+          <div class="wyszukiwanie-label">Nie masz uprawnień do tej strony</div> 
+          <p><a class="action-button" onclick = "window.location.href='/login'">Zaloguj sie</a></p>
+    {% endif %}       
+</body>
+</html>
