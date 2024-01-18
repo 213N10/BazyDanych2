@@ -59,7 +59,13 @@ NZU nie będzie mieć dostępu do funkcji modyfikujących zawartość bazy danyc
 ## Testowanie opracowanych funkcji systemu
 [moim zdaniem wystarczy opisać i wrzucić fotki]
 ## Omówienie rozwiązań programistycznych
-[tutaj jeszcze dodam jutro]
+Aplikacja korzysta ze standardowej struktury proejktu Django.
+
+Wybraliśmy architekturę MVT (stosowana przez Django) i różniącą się w swoich założeniach od architektry MVC. (widoki skupione na logice, a nie prezentacji danych etc.)
+
+W części aplikacji dostępnej dla NZU, nie zdecydowaliśmy się na dynamiczne przekierowywanie użytkownika. 
+
+Aplikacja nie korzysta z zewnętrznych zależności, nie licząc wcześniej wspomnianego `mysqlclient`. Zapewnia to większe bezpieczeństwo, poprzez minimalizacje ryzyka wystąpienia błędów lub szkodliwego oprogramowania.
 
 ### Implementacja interfejsu dostępu do bazy danych
 Do połączenia się z bazą danych wykorzystaliśmy wbudowany w django 'connector' do baz mySQL, jednak by móc z niego skorzystać musieliśmy pobrać pakiet `mysqlclient`, który dostarcza niskopoziomowy interfejs do komunikacji z bazą danych MySQL.
