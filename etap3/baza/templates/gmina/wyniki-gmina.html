@@ -1,7 +1,7 @@
 {% if wyniki %}
     <ul>
         {% for gmina in wyniki %}
-            <li><a href="{% url 'show_gmi' woj_id=gmina.id_terytowe %}">{{ gmina.nazwa }} {{ gmina.stolica_gminy }}</a></li>
+            <li><a href="{% url 'show_gmi' woj_id=gmina.id_terytowe %}">{{ gmina.nazwa }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
