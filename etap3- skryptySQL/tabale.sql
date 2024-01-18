@@ -50,7 +50,7 @@ CREATE TABLE Wojewodztwa (Id_terytowe int(10) NOT NULL AUTO_INCREMENT,
                           PRIMARY KEY (Id_terytowe),
                           INDEX (Nazwa),
                           INDEX (Miasto_wojewodzkie),
-                          INDEX (Drugie_miasto_wojewódzkie),
+                          INDEX (Drugie_miasto_wojewodzkie),
                           INDEX (Powierzchnia),
                           INDEX (Ludnosc));
 ALTER TABLE Gminy ADD CONSTRAINT FKGminy238740 FOREIGN KEY (Powiat_w_ktorym_sie_znajduje) REFERENCES Powiaty (Id_terytowe);

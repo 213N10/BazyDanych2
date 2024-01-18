@@ -10,7 +10,7 @@ CREATE PROCEDURE DodajWojewodstwo
     IN p_DodatkoweInformacje varchar(255)
 )
 BEGIN
-    INSERT INTO administracjaRP.Wojewodztwa (Nazwa, Miasto_wojewodzkie, Wspolrzedne_miasta_wojewodzkiego_x,Wspolrzedne_miasta_wojewodzkiego_y, Drugie_miasto_wojewódzkie, Wspolrzedne_drugiego_miasta_wojewodzkiego_x,Wspolrzedne_drugiego_miasta_wojewodzkiego_y, inne_dane)
+    INSERT INTO administracjaRP.Wojewodztwa (Nazwa, Miasto_wojewodzkie, Wspolrzedne_miasta_wojewodzkiego_x,Wspolrzedne_miasta_wojewodzkiego_y, Drugie_miasto_wojewodzkie, Wspolrzedne_drugiego_miasta_wojewodzkiego_x,Wspolrzedne_drugiego_miasta_wojewodzkiego_y, inne_dane)
     VALUES (p_Nazwa, p_MiastoWojewodzkie, p_WspolrzedneMiastaWojewodzkiegoX,p_WspolrzedneMiastaWojewodzkiegoY, p_DrugieMiastoWojewodzkie, p_WspolrzedneDrugiegoMiastaWojewodzkiegoX,p_WspolrzedneDrugiegoMiastaWojewodzkiegoY, p_DodatkoweInformacje);
 END;
 
@@ -34,7 +34,7 @@ BEGIN
         Miasto_wojewodzkie = p_MiastoWojewodzkie,
         Wspolrzedne_miasta_wojewodzkiego_x = p_WspolrzedneMiastaWojewodzkiegoX,
         Wspolrzedne_miasta_wojewodzkiego_y = p_WspolrzedneMiastaWojewodzkiegoY,
-        Drugie_miasto_wojewódzkie = p_DrugieMiastoWojewodzkie,
+        Drugie_miasto_wojewodzkie = p_DrugieMiastoWojewodzkie,
         Wspolrzedne_drugiego_miasta_wojewodzkiego_x = p_WspolrzedneDrugiegoMiastaWojewodzkiegoX,
         Wspolrzedne_drugiego_miasta_wojewodzkiego_y = p_WspolrzedneDrugiegoMiastaWojewodzkiegoY,
         inne_dane = p_DodatkoweInformacje
@@ -52,7 +52,7 @@ BEGIN
     WHERE Nazwa LIKE CONCAT('%', p_Kryterium, '%')
        OR Miasto_wojewodzkie LIKE CONCAT('%', p_Kryterium, '%')
        OR inne_dane LIKE CONCAT('%', p_Kryterium, '%')
-       OR Drugie_miasto_wojewódzkie LIKE CONCAT('%', p_Kryterium, '%');
+       OR Drugie_miasto_wojewodzkie LIKE CONCAT('%', p_Kryterium, '%');
 END;
 
 

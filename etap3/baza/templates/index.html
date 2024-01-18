@@ -2,15 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Główna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a href="{% url 'search_woj' %}">wyszukaj wojewodztwa jako gość</a></li>
-        <li><a href="{% url 'search_gmi' %}">wyszukaj gminy jako gość</a></li>
-        <li><a href="{% url 'search_pow' %}">wyszukaj powiaty jako gość</a></li>
-
-    </ul>
+    
+    <div class="button-container">
+        <button type="submit" class="action-button" name="przegladaj" value="b1" onclick="window.location.href='{% url 'wyszukaj_all' %}'">Przeglądaj dane jako gość</button>
+        <button type="submit" class="action-button" name="zaloguj" value="b1" onclick="window.location.href='{% url 'login' %}'">Zaloguj na konto administratora</button>
+    </div>
 </body>
 </html>
