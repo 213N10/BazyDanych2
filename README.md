@@ -13,8 +13,7 @@
 Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz usuwać istniejące. Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytować użytkowników (kolejnych administratorów, administratorów danych bądź zdefiniowanych przez siebie) oraz przypisywać im grupy z odpowiednimi uprawnieniami.
 [tutaj wstawienie ss panelu administratora]
 - Dodawanie danych  
-- Edytowanie danych   
-- Usuwanie danych  
+- Edytowanie danych i usuwanie danych  
 [wstawić fotki]
 
 
