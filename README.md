@@ -12,23 +12,23 @@
 ## Instrukcja użytkowania aplikacji- administrator bazy danych:  
 Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. 
 
-![](testyZrzuty/admin/logowanie.png)
-![](testyZrzuty/admin/panelAdmina.png)
+![](testyZrzuty/admin/logowanie.png "logowanie do panelu administratora")
+![](testyZrzuty/admin/panelAdmina.png "panel administratora")
 
-Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz usuwać istniejące. 
-![](testyZrzuty/admin/podgladObiektu.png)
-![](testyZrzuty/admin/przegladObiektow.png)
+Po zalogowaniu administrator ma dostęp do panelu za pomocą, którego może edytować danymi "zaciągniętymi" z bazy danych przez aplikację, dodawać nowe oraz edytować i usuwać istniejące. 
+![](testyZrzuty/admin/przegladObiektow.png "wyświetlanie obiektów + dodawanie")
+![](testyZrzuty/admin/podgladObiektu.png "edycja + usuwanie obiektu")
 
 Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytować użytkowników (kolejnych administratorów, administratorów danych bądź zdefiniowanych przez siebie) oraz przypisywać im grupy z odpowiednimi uprawnieniami.
 - Dodawanie użytkowników
-![](testyZrzuty/admin/uzytkownicy.png)
+![](testyZrzuty/admin/uzytkownicy.png "dodawanie użytkownika")
 - Edytowanie i usuwanie użytkowików:
-![](testyZrzuty/admin/uzytk-edycja.png)  
-![](testyZrzuty/admin/dostep-uzytk.png)
+![](testyZrzuty/admin/uzytk-edycja.png "edycja + usuwanie użytkownika")  
+![](testyZrzuty/admin/dostep-uzytk.png "edycja + usuwanie użytkownika")
 - Tworzenie grup:
-![](testyZrzuty/admin/grupty.png)
+![](testyZrzuty/admin/grupty.png "tworzenie i wyświetlanie grup")
 - Edycja i usuwanie grup
-![](testyZrzuty/admin/dostep.png)
+![](testyZrzuty/admin/dostep.png "zarządzanie grupą")
 
 
 
@@ -36,42 +36,45 @@ Administrator może również za pomocą aplikacji dodawać, usuwać oraz edytow
 Konta administratorów danych będą tworzone przez administrartora bazy danych, z użyciem panelu administracyjnego. Hasło użytkownika musi mieć więcej niż 8 znaków w tym znaki i litery.
 
 Aby zalogować się jako administrator danych, użytkownik na stronie głównej musi nacisnąć przycisk zaloguj:
-![](testyZrzuty/admin%20danych/glowny.png)
+![](testyZrzuty/admin%20danych/glowny.png "strona głowna")
 
 Po naciśnięciu przycisku bedzie musiał podać swoje dane uwierzytelniające:
 ![](testyZrzuty/admin%20danych/panel%20logowania.jpg)
 W przypadku podania złych danych zostanie wyświetlony komunikat:
-![](testyZrzuty/admin%20danych/próbra%20wejścia%20bez%20zalogowania.jpg)
+![](testyZrzuty/admin%20danych/zle-hasło.jpg "podanie złego hasła")
+
+Jeśli ktoś chciałby uzyskać dostęp do panalu administratora danych, bez wcześniejszego zalogowania np. wykorzystując URL, otrzyma poniższy komunikat:
+![](testyZrzuty/admin%20danych/probaWejsciaBezZalogowania.jpg "nielegalna próba dostępu") 
 
 Po zalogowaniu administrator danych będzie mieć dostęp do poniższego panelu:
-![](testyZrzuty/admin%20danych/panel%20administratora%20main.jpg)
+![](testyZrzuty/admin%20danych/panel%20administratora%20main.jpg "panel administratora danych")
 
 Administator danych może dodawać Gminy, Powiaty oraz Województwa za pomocą przycisku.
 
 W celu edytowania lub usunięcia danych administrator musi wybrać jaki obiekt usunąć. **W tym przykladzie posłużymy się powiatami, jednak proces jest taki sam dla pozostałych jednostek terytorialnych!**
 
 Po wybraniu powiatów pokazuje nam się lista wszystkich powiatów:
-![](testyZrzuty/admin%20danych/wyszuk.jpg)
+![](testyZrzuty/admin%20danych/wyszuk.jpg "lista wszystkich obiektów")
 
 Następnie wybieramy interesujący nas powiat i wyświetla sie nam panel edycji z opcją usunięcia obiektu:
-![](testyZrzuty/admin%20danych/edycja.jpg)
+![](testyZrzuty/admin%20danych/edycja.jpg "edycja i usuwanie obiektu")
 
 
 
 
 ## Instrukcja użytkowania aplikacji- niezalogowany użytkownik
 Po wpisaniu nr ip/nazwy domeny internetowej użytkownik zostanie skierowany na stronę główną. Na stronie głównej użytkownik będzie miał opcje zalogowania się, jeśli jest pracownikiem, lub korzystania dalej jako niezalogowany użytkownik (dalej również nazywany NZU).
-![](testyZrzuty/user/glowna.png)
+![](testyZrzuty/user/glowna.png "strona glowna")
  Jako NZU, użytkownik będzie miał do wyboru:
 ### Funkcjonalności dla niezalogowanego użytkownika
 1. Wyszukiwanie województw
 2. Wyszukiwanie powiatów
 3. Wyszukiwanie gmin
-![](testyZrzuty/user/wybor.png)
+![](testyZrzuty/user/wybor.png "wybór typu obiektu do wyszukania")
 **Dla przykładu zaprezentowano opcje wyszukania Gminy. Dla wyszukiwania powiatów i województw kroki będą jednakowe**
-![](testyZrzuty/user/wyszuk1.png)
-![](testyZrzuty/user/wyszuk2.png)
-![](testyZrzuty/user/wyniki.png)
+![](testyZrzuty/user/wyszuk1.png "wyszukiwanie gminy")
+![](testyZrzuty/user/wyszuk2.png "wyszukiwanie gminy")
+![](testyZrzuty/user/wyniki.png "wyszukiwanie gminy")
 
 Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sprawdzić szczegóły interesującego go wyniku np.: dla gminy będzie to:
 - nazwa
@@ -83,7 +86,7 @@ Po wyszukaniu interesujacych użytkownika danych po nazwie, użytkownik może sp
 - typ gminy
 - współrzędne geograficzne x oraz y stolicy gminy
 - inne dane
-![](testyZrzuty/user/podglad.png)
+![](testyZrzuty/user/podglad.png "podgląd wyniku")
 
 Dla powiatu użytkowik będzie miał podgląd do inforamcji takich jak:
 - nazwa
