@@ -1,9 +1,0 @@
-{% if wyniki %}
-    <ul>
-        {% for wojew in wyniki %}
-            <li>{{ wojew.nazwa }} {{ wojew.miasto_wojewodzkie }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Brak wyników dla podanego wojewodztwa.</p>
-{% endif %}

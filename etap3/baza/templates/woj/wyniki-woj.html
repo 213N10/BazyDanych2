@@ -1,9 +1,0 @@
-{% if wyniki %}
-    <ul>
-        {% for wojew in wyniki %}
-            <li><a href="{% url 'show_woj' woj_id=wojew.id_terytowe %}">{{ wojew.nazwa }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Brak wyników dla podanego wojewodztwa.</p>
-{% endif %}

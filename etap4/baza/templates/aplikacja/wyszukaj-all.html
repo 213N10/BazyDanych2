@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Wyszukiwania</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .searchButton {
+            padding: 10px;
+            font-size: 1.5em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{% url 'wyszukaj_all' %}">
+        {% csrf_token %}
+        <input type="submit" class="searchButton" name="action" value="Wyszukaj Województwa">
+        <input type="submit" class="searchButton" name="action" value="Wyszukaj Gminy">
+        <input type="submit" class="searchButton" name="action" value="Wyszukaj Powiaty">
+    </form>
+</body>
+</html>

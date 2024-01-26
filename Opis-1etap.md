@@ -14,10 +14,10 @@
 # Aplikacja "Podział administracyjny RP"
 ## Cel: Stworzenie aplikacji ułatwiającej odczytywanie danych administracyjnych
 ## Opis:  
-Stworzony przez nas system przedstawiający podział administracyjny Rzeczypospolitej Polskiej będzie się składał z aplikacji dostępowej oraz bazy danych.
+Stworzony przez nas system przedstawiający podział administracyjny Rzeczypospolitej Polskiej składa się z aplikacji dostępowej oraz bazy danych.
 
-Baza danych będzie się składać z trzech encji odpowiadającym stopniom jednostek administracyjnych w Polsce- województwa (1 stopień), powiatu (2stopień) oraz gmin (3 stopień).
-### Encja województw będzie przechowywać dane dot. odpowiednich województw takich jak: 
+Baza danych składa się z trzech encji odpowiadającym stopniom jednostek administracyjnych w Polsce- województwa (1 stopień), powiatu (2stopień) oraz gmin (3 stopień).
+### Encja województw przechowuje dane dot. odpowiednich województw takich jak: 
 - nazwa
 - niepowtarzalny numer id- teryt
 - powierzchnia
@@ -25,7 +25,7 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - miasto wojewódzkie
 - współrzędne miasta wojewódzkiego
 - inne dane
-### Encja powiatów będzie przechowywać dane dot. odpowiednich powiatów takich jak: 
+### Encja powiatów przechowuje dane dot. odpowiednich powiatów takich jak: 
 - nazwa
 - niepowtarzalny numer idv
 - powierzchnia
@@ -35,7 +35,7 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - współrzędne stolicy powiatu
 - województwo w którym się znajduje
 - inne dane 
-### Encja gmin będzie przechowywać dane dot. odpowiednich gmin takich jak: 
+### Encja gmin przechowuje dane dot. odpowiednich gmin takich jak: 
 - nazwa
 - niepowtarzalny numer id- teryt
 - powierzchnia
@@ -93,14 +93,14 @@ Baza danych będzie się składać z trzech encji odpowiadającym stopniom jedno
 - Aplikacja będzie posiadać intuicyjny interfejs uzytkownika.
 - Aplikacja będzie działać na przęglądarkach dostępnych na systemach: Windows, Linux, macOS.
 - Baza danych będzie wykorzystywać technologię MySQL.
-- Stabilność zapewnią testy jednostkowe i funkcjonalne dla aplikacji django.
+- Stabilność zapewniają testy manualne dla aplikacji django.
 - System gwarantuje integralność danych, poprzez weryfikację użytkowników.
-- System powinien obsłużyć 300 zapytań na sekundę 
-- System będzie ciągle dostępny z wyjątkiem czasu, w którym prowadzone będą prace konserwacyjne. 
-- Prace konserwacyjne bedą odbywać się w środy w godzinach 11-16.
+- System obsługuje 300 zapytań na sekundę 
+- System jest ciągle dostępny z wyjątkiem czasu, w którym prowadzone są prace konserwacyjne. 
+- Prace konserwacyjne odbywają się w środy w godzinach 11-16.
 - Zapewniamy całodobowe wsparcie techniczne.
-- Będziemy monitorować użycie zasobów.
-- największa encja (gmin) będzie miała około 2500 rekordów.
+- Monitorujemy użycie zasobów.
+- największa encja (gmin) ma około 2500 rekordów.
 
 
 
