@@ -3,11 +3,11 @@
 0. Zalecane jest stworzenie wirtualnego środowiska
 1. Sklonuj repozytorium na komputer/server hostujący aplikacje
 2. w terminalu użyj komendy `pip install django mysqlclient django-crispy-forms django-bootstrap4 `
-3. Aby stworzyć użytkownika z uprawnieniami administratora wejdź do folderu z aplikacją i w terminalu wpisz `python .\manage.py createsuperuser`
+3. Aby stworzyć użytkownika z uprawnieniami administratora wejdź do folderu z aplikacją i w terminalu wpisz `python .\manage.py createsuperuser`.
 4. Uzupełnij wymagane dane
 5. Aby uruchomić aplikację: `python .\manage.py runserver`
 6. Aplikacja połączy się z naszymi serverami automatycznie.
-7. Aplikacja powinna działać na zdefiniowanym w kontrakcie ip/domenie
+7. Aplikacja powinna działać na zdefiniowanym w kontrakcie ip/domenie.
 
 ## Instrukcja użytkowania aplikacji- administrator bazy danych:  
 Do nadzoru aplikacji sugerujemy wykorzystanie panelu administratora, który dostępny jest dla użytkownika pod adresem: `ip/admin` lub `nazwadomoenyinternetowej/admin`. Dostęp wymaga zalogowania za pomocą danych, podanych podczas tworzenia użytkownika z uprawnieniami administratora. 
